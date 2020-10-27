@@ -1,0 +1,1 @@
+﻿SELECT Speciality,Doctor,Experience,Review FROM dbo.Reviews where Experience='positive'

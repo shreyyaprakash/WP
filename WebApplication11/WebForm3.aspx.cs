@@ -33,6 +33,8 @@ namespace WebApplication11
 
             if (dr.HasRows)
             {
+                //DropDownList1.Items.Clear();
+                //DropDownList1.Items.Add(new ListItem("Please Select", ""));
                 while (dr.Read())
                 {
                     DropDownList1.Items.Add(new ListItem(dr[0].ToString(), dr[0].ToString()));
@@ -44,7 +46,9 @@ namespace WebApplication11
         {
             if (DropDownList1.SelectedValue == "")
             {
+                DropDownList1.Enabled = true;
                 Label3.Text = "Choose Doctor";
+               
             }
             else
             {
@@ -66,6 +70,8 @@ namespace WebApplication11
                 string b = "Afternoon ( 12:00 PM to 12:40 PM )";
                 string r = dt.Rows[0][2].ToString();
                 string c = "Evening ( 8:00 PM to 8:40 PM )";
+                DropDownList2.Items.Clear();
+                DropDownList2.Items.Add(new ListItem("Please Select", ""));
                 if (p == "0")
                 {
                     DropDownList2.Items.Add(new ListItem(a, "Morning"));
@@ -81,12 +87,19 @@ namespace WebApplication11
                     DropDownList2.Items.Add(new ListItem(c, "Evening"));
 
                 }
+                if(p=="1"&&q=="1"&&r=="1")
+                {
+                     MessageBox.Show("No slot available. Choose another doctor!");
+                    
+                    Response.Redirect("WebForm3.aspx?Name=" + x);
+                }
 
                 con.Close();
+                DropDownList1.Enabled = false;
 
             }
 
-
+            
         }
 
         protected void submit_Click(object sender, EventArgs e)
@@ -121,6 +134,11 @@ namespace WebApplication11
                 con.Close();
                 Response.Redirect("WebForm4.aspx");
             }
+        }
+
+        protected void Reset_Click(object sender, EventArgs e)
+        {
+            Response.Redirect("WebForm3.aspx?Name=" + x);
         }
     }
 }

@@ -26,7 +26,9 @@ namespace WebApplication11
         protected void Button1_Click(object sender, EventArgs e)
         {
             if (DropDownList1.SelectedValue == "")
-            { Label3.Text = "Please select speciality"; }
+            {
+                Label3.Text = "Please select speciality";
+            }
             else
             {
                 DropDownList2.Visible = true;
@@ -54,10 +56,9 @@ namespace WebApplication11
 
         protected void submit_Click(object sender, EventArgs e)
         {
-            if (DropDownList1.SelectedValue == "")
-            {
-                Label3.Text = "Please select speciality";
-            }
+            if (DropDownList1.SelectedValue == "" || DropDownList2.SelectedValue == "")
+            { Label3.Text = "Invalid Entries"; }
+           
             else
             {
                 string s = TextBox1.Text;
@@ -87,6 +88,11 @@ namespace WebApplication11
                 con.Close();
                 con.Close();
             }
+        }
+
+        protected void Button2_Click(object sender, EventArgs e)
+        {
+            Response.Redirect("WebForm5.aspx");
         }
     }
 }

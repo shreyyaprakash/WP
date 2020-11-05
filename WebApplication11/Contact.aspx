@@ -11,17 +11,19 @@
         alert('Invalid Name.');
         return false;
         }      
-         if( document.myForm.ZipCode.value == "" || isNaN( document.myForm.ZipCode.value ) ||
-            document.myForm.ZipCode.value.length != 6 ) {
+            if (document.getElementById("validationTooltip05").value == "" || isNaN(document.getElementById("validationTooltip05").value ) ||
+                document.getElementById("validationTooltip05").value.length != 6 ) {
             
-            alert( "Please provide a zip in the format ######." );
-            return false;
-         }
+        alert( "Please provide a zip in the format ######." );
+        return false;
+       }
          
-         return( true );
+    return true ;
       }
    </script>  
+    </form>
 <!-- FormControl -->
+
 <form class="form needs-validation" onsubmit = "return(validate());" action="mailto:khare.ojesh2k17@gmail.com" name="myForm" method="post" enctype="text/plain"  >
   <div class="form-row">
     <div class="col-md-6 mb-3">
@@ -103,7 +105,9 @@
     <textarea class="form-control" id="exampleFormControlTextarea1" name="MESSAGE" rows="8" cols="150"></textarea>
   </div>
   <br>
-  <button class="form-bt botton btn btn-primary" type="submit">Submit form</button>
+    <div align="center">
+    <asp:Button ID="Button1" runat="server" Text="submit" OnClientClick="return validate()" />
+    </div>
 </form>
 
 

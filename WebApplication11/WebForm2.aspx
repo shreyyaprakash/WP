@@ -2,8 +2,9 @@
 <asp:Content ID="Content1" ContentPlaceHolderID="MainContent" runat="server">
     <br />
     <br />
-    <div id="lo">
+    <div align="center">
     <asp:Label ID="Label1" runat="server" Text="Choose Speciality"></asp:Label>
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
     <asp:DropDownList ID="DropDownList1" runat="server">
         <asp:ListItem Text="Please select" Value=""></asp:ListItem>
         <asp:ListItem Text="Dentist" Value="Dentist"></asp:ListItem>
@@ -13,6 +14,8 @@
        
     </asp:DropDownList>
    <br />
+        <br />
+        <br />
     <asp:Button ID="sub" runat="server" Text="Submit" OnClick="sub_Click" />
     <br />
     <asp:Label ID="Label2" runat="server" Text=""></asp:Label>
